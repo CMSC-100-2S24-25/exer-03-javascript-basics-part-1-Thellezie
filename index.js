@@ -41,6 +41,17 @@ function checker(string){
         return false
     }
 
+
+}
+
+// Function: Reversing the pasword
+function reversePass(stringToReverse){
+    let reversed = ''
+    for (let i = stringToReverse.length-1; i >= 0; i--){
+        reversed += stringToReverse[i]
+    }
+
+    return reversed
 }
 
 //Function: validating if 2 passwords match
@@ -59,3 +70,37 @@ function validatePassword(StringA, StringB){
     }
 }
 
+// Function: Store password to the object
+function  storePassword (Name, password1, password2){
+    let newPassword
+
+    // if conditions are met for passwords: use reversed password as new password, otherwise use the 1st given password
+    if(validatePassword(password1, password2)){
+        newPassword = reversePass(password1)
+
+    }else{
+        newPassword = password1
+    }
+
+    // Object
+    const person = {
+        name: Name,
+        newpassword: newPassword
+    }
+
+    return person
+}
+
+// ------ Main Function ------ //
+
+console.log(storePassword("John", "Pass1234", "Pass1234"))
+console.log(storePassword("John", "Pass123", "Pass12345"))
+
+/*
+// Test cases
+//ValidatePassword
+console.log(validatePassword("helloworld", "hello"))
+console.log(validatePassword("hello", "hello"))
+console.log(validatePassword("hello1234", "hello1234"))
+console.log(validatePassword("Hello1234", "Hello1234"))
+*/
