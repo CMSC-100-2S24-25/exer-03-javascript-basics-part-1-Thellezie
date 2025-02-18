@@ -12,6 +12,36 @@ purpose of use: to convert characters to ASCII values
 */
 
 // ------ Functions ------ //
+//Function: check if the password contains 1 num, 1 uppercase, 1 lowercase 
+function checker(string){
+    let num = false
+    let upper = false
+    let lower = false
+
+
+    for(let i = 0; i < string.length; i++) {
+        // number
+        if(string.charCodeAt(i) >= 48 && string.charCodeAt(i) <= 57){
+            num = true
+        } 
+        // uppercase
+        else if (string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90){
+            upper = true
+        } 
+        // lowercase
+        else if (string.charCodeAt(i) >= 97 && string.charCodeAt(i) <= 122){
+            lower = true
+        }
+    }
+
+    // If all conditions are met return true, otherwise false
+    if (num && upper && lower){
+        return true
+    }else{
+        return false
+    }
+
+}
 
 //Function: validating if 2 passwords match
 function validatePassword(StringA, StringB){
